@@ -7,7 +7,7 @@ import com.experitest.client.Client;
 import com.experitest.client.GridClient;
 
 public class AppTest {
-	
+	//test
 	protected Client client = null;
 	protected GridClient grid = null;
 	private String testName = "Jenkins Demo - Android";
