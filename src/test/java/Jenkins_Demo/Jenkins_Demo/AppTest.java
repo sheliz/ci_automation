@@ -23,11 +23,7 @@ public class AppTest {
 	@Test
 	public void test(){
 		client.install("cloud:uniqueName=testApp", true, true);
-		client.deviceAction("Unlock");
-		client.launch("cloud:com.experitest.ExperiBank/.LoginActivity", true, false);
-		client.elementSendText("NATIVE", "id=usernameTextField", 0, "company");
-		client.elementSendText("NATIVE", "id=passwordTextField", 0, "company");
-		client.click("NATIVE", "id=loginButton", 0, 1);
+		client.launch("cloud:uniqueName=testApp", true, true);
 	}
 
 	@AfterMethod
