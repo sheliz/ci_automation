@@ -22,8 +22,8 @@ public class AppTest {
 
 	@Test
 	public void test(){
-		client.install("cloud:uniqueName=testApp", true, true);
-		client.launch("cloud:uniqueName=testApp", true, true);
+		client.install("cloud:uniqueName=testEribank", true, true);
+		client.launch("cloud:uniqueName=testEribank", true, true);
 	}
 
 	@AfterMethod
