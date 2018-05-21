@@ -16,7 +16,7 @@ public class AppTest {
 
 	@Before
 	public void setUp(){
-		grid = new GridClient(accessKey, "sales.experitest.com", 443, true);
+		grid = new GridClient(accessKey, "192.168.2.1", 9192, false);
 		client = grid.lockDeviceForExecution(testName,"@os='android'", 10, 5);
 		client.setReporter("xml", "reports", testName);
 	}
