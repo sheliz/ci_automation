@@ -1,8 +1,9 @@
 package Jenkins_Demo.Jenkins_Demo;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import com.experitest.client.Client;
 import com.experitest.client.GridClient;
 
@@ -13,9 +14,9 @@ public class AppTest {
 	private String testName = "Jenkins Demo - Android";
 	private String accessKey = System.getenv("accessKey");
 
-	@BeforeMethod
+	@Before
 	public void setUp(){
-		grid = new GridClient(accessKey, "192.168.2.1", 9192, false);
+		grid = new GridClient(accessKey, "sales.experitest.com", 443, true);
 		client = grid.lockDeviceForExecution(testName,"@os='android'", 10, 5);
 		client.setReporter("xml", "reports", testName);
 	}
@@ -26,7 +27,7 @@ public class AppTest {
 		client.launch("cloud:com.experitest.ExperiBank/.LoginActivity", true, false);
 	}
 
-	@AfterMethod
+	@After
 	public void tearDown(){
 		client.generateReport(false);
 		client.releaseClient();
