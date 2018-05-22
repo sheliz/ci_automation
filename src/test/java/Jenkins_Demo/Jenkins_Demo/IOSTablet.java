@@ -1,30 +1,19 @@
 package Jenkins_Demo.Jenkins_Demo;
 
-import java.net.URL;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.remote.AndroidMobileCapabilityType;
-import io.appium.java_client.remote.MobileCapabilityType;
 
 public class IOSTablet extends BaseTest {
 
-	private String testName = "Jenkins Demo Android";
-	//private String accessKey = System.getenv("accessKey");
-	private String accessKey = "eyJ4cC51IjoxLCJ4cC5wIjoyLCJ4cC5tIjoiTVRVeE5UVTNNekEwT1RJNU1nIiwiYWxnIjoiSFMyNTYifQ.eyJleHAiOjE4MzMyNTc2NTIsImlzcyI6ImNvbS5leHBlcml0ZXN0In0.dlomjSQ3wkmV3uovu5fJtS5-Z7-vnyk7Sw9AOmmE4aA";
 	protected AndroidDriver<AndroidElement> driver = null;
 
 	@Before
 	public void setUp() throws Exception{
 		
-		init(System.getenv("deviceQuery"));
-		
-
-		//init("@os='android'");
+	//init("@os='android'");
 		
 		//driver = new AndroidDriver<AndroidElement>(new URL("http://192.168.2.1:9192/wd/hub"), dc);
 				//System.getenv("url") + "/wd/hub"), dc);
