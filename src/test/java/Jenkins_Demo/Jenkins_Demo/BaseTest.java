@@ -8,7 +8,7 @@ public class BaseTest {
 
 	protected DesiredCapabilities dc = new DesiredCapabilities();
 	
-	public void init() throws Exception {
+	public void main() throws Exception {
 		
 		JUnitCore junit = new JUnitCore();
 		String deviceQuery = System.getenv("deviceQuery");
