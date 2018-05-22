@@ -18,7 +18,7 @@ public class IOSTest extends BaseTest {
 	@Before
 	public void setUp() throws Exception{
         dc.setCapability("testName", testName);
-        driver = new IOSDriver<>(new URL("https://sales.experitest.com/wd/hub"), dc);
+        driver = new IOSDriver<IOSElement>(new URL("https://sales.experitest.com/wd/hub"), dc);
 	}
 
 	@Test
