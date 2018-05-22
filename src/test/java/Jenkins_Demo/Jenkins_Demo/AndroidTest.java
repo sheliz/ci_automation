@@ -14,7 +14,7 @@ public class AndroidTest extends BaseTest{
     @Before
     public void setUp() throws MalformedURLException {
         dc.setCapability("testName", testName);
-        driver = new AndroidDriver<>(new URL("http://jaharon-lt.experitest.local:9192/wd/hub"), dc);
+        driver = new AndroidDriver<>(new URL("https://sales.experitest.com/wd/hub"), dc);
     }
 
     @Test
