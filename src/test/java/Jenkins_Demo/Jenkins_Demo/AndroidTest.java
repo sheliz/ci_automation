@@ -28,7 +28,7 @@ public class AndroidTest {
 
     @Test
     public void test() {
-        driver.executeScript("seetest:client.install(\"cloud:uniqueName=testEribankAndroid\", \"true\", \"false\")");
+        driver.executeScript("seetest:client.install(\"cloud:uniqueName=testEribankAndroid_" + System.getenv("BUILD_NUMBER") + "\", \"true\", \"false\")");
 		driver.executeScript("seetest:client.launch(\"cloud:com.experitest.eribank/com.experitest.ExperiBank.LoginActivity\", \"true\", \"true\")");
         driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
         driver.hideKeyboard();

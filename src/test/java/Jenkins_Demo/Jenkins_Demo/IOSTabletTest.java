@@ -32,7 +32,7 @@ public class IOSTabletTest {
 
 	@Test
 	public void test(){
-        driver.executeScript("seetest:client.install(\"cloud:uniqueName=testEribankIOS\", \"true\", \"false\")");
+        driver.executeScript("seetest:client.install(\"cloud:uniqueName=testEribankIOS_" + System.getenv("BUILD_NUMBER") + "\", \"true\", \"false\")");
 		driver.executeScript("seetest:client.launch(\"cloud:com.experitest.ExperiBank\", \"true\", \"true\")");
 		dc.setCapability(MobileCapabilityType.APP, "cloud:uniqueName=testEribankIOS");
 		dc.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
