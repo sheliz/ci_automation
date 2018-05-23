@@ -14,34 +14,28 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.net.URL;
 
 
-public class Web {
+public class WebTest {
 
-    private static final String ACCESS_KEY = "eyJ4cC51IjoxLCJ4cC5wIjoyLCJ4cC5tIjoiTVRVeE5UVTNNekEwT1RJNU1nIiwiYWxnIjoiSFMyNTYifQ.eyJleHAiOjE4MzMyNTc2NTIsImlzcyI6ImNvbS5leHBlcml0ZXN0In0.dlomjSQ3wkmV3uovu5fJtS5-Z7-vnyk7Sw9AOmmE4aA";
+    private static final String ACCESS_KEY = "eyJ4cC51IjoxMjcsInhwLnAiOjIsInhwLm0iOiJNVFV5TXpnM01qRTVNRFl3TnciLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NDIzMzk4NTksImlzcyI6ImNvbS5leHBlcml0ZXN0In0.MvprhgWLkF27CEvR1XE0rm9M5_DROY-Bl_597rLiF44";
     private WebDriver driver;
-    private URL url;
     private DesiredCapabilities dc = new DesiredCapabilities();
 
     @Before
     public void setUp() throws Exception {
-
-        url = new URL("http://jaharon-lt.experitest.local:9192/wd/hub");
-        dc.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
+        dc.setCapability(CapabilityType.BROWSER_NAME, System.getenv("browser"));
         dc.setCapability(CapabilityType.VERSION, "Any");
         dc.setCapability(CapabilityType.PLATFORM, Platform.ANY);
         dc.setCapability("accessKey", ACCESS_KEY);
         dc.setCapability("testName", "Quick Start Chrome Browser Demo");
-        driver = new RemoteWebDriver(url, dc);
+        driver = new RemoteWebDriver(new URL(System.getenv("url")), dc);
     }
 
 
     @Test
-    public void testExperitest() {
-        driver.get("https://www.google.com");
-        new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.id("lst-ib")));
-        WebElement searchBar = driver.findElement(By.id("lst-ib"));
-        searchBar.click();
-        searchBar.sendKeys("Experitest");
-        searchBar.sendKeys(Keys.ENTER);
+    public void testExperitest() throws InterruptedException {
+        driver.get("https://www.experitest.com/");
+        new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/nav/div/button")));
+        Thread.sleep(10000);
     }
 
     @After

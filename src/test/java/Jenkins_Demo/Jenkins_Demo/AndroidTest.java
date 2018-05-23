@@ -14,15 +14,13 @@ public class AndroidTest extends BaseTest{
     @Before
     public void setUp() throws MalformedURLException {
         dc.setCapability("testName", testName);
-		//dc.setCapability("deviceQuery", System.getenv("deviceQuery"));
-        dc.setCapability("deviceQuery", "@os='android'");
+		dc.setCapability("deviceQuery", System.getenv("deviceQuery"));
 		dc.setCapability("reportDirectory", "reports");
 		dc.setCapability("reportFormat", "xml");
 		dc.setCapability("stream", "jenkins_android_phone");
 		dc.setCapability("build.number", System.getenv("BUILD_NUMBER"));
-		//dc.setCapability("accessKey", System.getenv("accessKey")); 
-		dc.setCapability("accessKey", "eyJ4cC51IjoxMjcsInhwLnAiOjIsInhwLm0iOiJNVFV5TXpnM01qRTVNRFl3TnciLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NDIzMzk4NTksImlzcyI6ImNvbS5leHBlcml0ZXN0In0.MvprhgWLkF27CEvR1XE0rm9M5_DROY-Bl_597rLiF44");
-        driver = new AndroidDriver<AndroidElement>(new URL("https://sales.experitest.com/wd/hub"), dc);
+		dc.setCapability("accessKey", System.getenv("accessKey")); 
+        driver = new AndroidDriver<AndroidElement>(new URL(System.getenv("url")), dc);
     }
 
     @Test

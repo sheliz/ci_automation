@@ -10,9 +10,9 @@ import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 
-public class IOSTest extends BaseTest {
+public class IOSTabletTest extends BaseTest {
 
-	private String testName = "Jenkins Demo iOS Phone";
+	private String testName = "Jenkins Demo iOS Tablet";
     protected IOSDriver<IOSElement> driver = null;
 
 	@Before
