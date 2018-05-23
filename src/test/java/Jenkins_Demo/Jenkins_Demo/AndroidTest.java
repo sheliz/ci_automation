@@ -3,13 +3,16 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.junit.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class AndroidTest extends BaseTest{
+public class AndroidTest {
 
 	private String testName = "Jenkins Demo Android Phone";
 	protected AndroidDriver<AndroidElement> driver = null;
+	protected DesiredCapabilities dc = new DesiredCapabilities();
 
     @Before
     public void setUp() throws MalformedURLException {

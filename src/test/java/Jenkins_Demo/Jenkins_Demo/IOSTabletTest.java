@@ -5,15 +5,18 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 
-public class IOSTabletTest extends BaseTest {
+public class IOSTabletTest {
 
 	private String testName = "Jenkins Demo iOS Tablet";
     protected IOSDriver<IOSElement> driver = null;
+    protected DesiredCapabilities dc = new DesiredCapabilities();
 
 	@Before
 	public void setUp() throws Exception{
