@@ -21,7 +21,7 @@ public class IOSTest extends BaseTest {
 		dc.setCapability("deviceQuery", System.getenv("deviceQuery"));
 		dc.setCapability("reportDirectory", "reports");
 		dc.setCapability("reportFormat", "xml");
-		dc.setCapability("stream", "jenkins_android_phone");
+		dc.setCapability("stream", "jenkins_ios_phone");
 		dc.setCapability("build.number", System.getenv("BUILD_NUMBER"));
 		dc.setCapability("accessKey", System.getenv("accessKey")); 
         driver = new IOSDriver<IOSElement>(new URL(System.getenv("url")), dc);

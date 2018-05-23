@@ -16,7 +16,6 @@ import java.net.URL;
 
 public class WebTest {
 
-    private static final String ACCESS_KEY = "eyJ4cC51IjoxMjcsInhwLnAiOjIsInhwLm0iOiJNVFV5TXpnM01qRTVNRFl3TnciLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NDIzMzk4NTksImlzcyI6ImNvbS5leHBlcml0ZXN0In0.MvprhgWLkF27CEvR1XE0rm9M5_DROY-Bl_597rLiF44";
     private WebDriver driver;
     private DesiredCapabilities dc = new DesiredCapabilities();
 
@@ -25,8 +24,10 @@ public class WebTest {
         dc.setCapability(CapabilityType.BROWSER_NAME, System.getenv("browser"));
         dc.setCapability(CapabilityType.VERSION, "Any");
         dc.setCapability(CapabilityType.PLATFORM, Platform.ANY);
-        dc.setCapability("accessKey", ACCESS_KEY);
-        dc.setCapability("testName", "Quick Start Chrome Browser Demo");
+		dc.setCapability("stream", "jenkins_web");
+        dc.setCapability("build.number", System.getenv("BUILD_NUMBER"));
+        dc.setCapability("accessKey", System.getenv("accessKey"));
+        dc.setCapability("testName", "Jenkins Demo Web");
         driver = new RemoteWebDriver(new URL(System.getenv("url")), dc);
     }
 
