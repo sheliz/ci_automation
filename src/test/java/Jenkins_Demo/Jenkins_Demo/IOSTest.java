@@ -16,7 +16,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 
 public class IOSTest  {
 
-	private String testName = "Jenkins Demo iOS Phone";
+	private String testName = "Jenkins Demo iOS";
     protected IOSDriver<IOSElement> driver = null;
     protected DesiredCapabilities dc = new DesiredCapabilities();
     private SeeTestClient client;
