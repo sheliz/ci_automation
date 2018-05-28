@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import com.experitest.appium.SeeTestClient;
+
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.remote.IOSMobileCapabilityType;
@@ -17,6 +19,7 @@ public class IOSTabletTest {
 	private String testName = "Jenkins Demo iOS Tablet";
     protected IOSDriver<IOSElement> driver = null;
     protected DesiredCapabilities dc = new DesiredCapabilities();
+    private SeeTestClient client;
 
 	@Before
 	public void setUp() throws Exception{
@@ -28,15 +31,18 @@ public class IOSTabletTest {
 		dc.setCapability("build.number", System.getenv("BUILD_NUMBER"));
 		dc.setCapability("accessKey", System.getenv("accessKey")); 
         driver = new IOSDriver<IOSElement>(new URL(System.getenv("url")), dc);
+        client = new SeeTestClient(driver);
 	}
 
 	@Test
 	public void test(){
-        driver.executeScript("seetest:client.install(\"cloud:uniqueName=testEribankIOS_" + System.getenv("BUILD_NUMBER") + "\", \"true\", \"false\")");
-		driver.executeScript("seetest:client.launch(\"cloud:com.experitest.ExperiBank\", \"true\", \"true\")");
-		dc.setCapability(MobileCapabilityType.APP, "cloud:uniqueName=testEribankIOS");
-		dc.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
-		dc.setCapability("instrumentApp", true);
+		client.install("cloud:uniqueName=testEribankIOS_" + System.getenv("BUILD_NUMBER"), true, false);
+		client.launch("cloud:com.experitest.ExperiBank", true, true);
+        //driver.executeScript("seetest:client.install(\"cloud:uniqueName=testEribankIOS_" + System.getenv("BUILD_NUMBER") + "\", \"true\", \"false\")");
+		//driver.executeScript("seetest:client.launch(\"cloud:com.experitest.ExperiBank\", \"true\", \"true\")");
+		//dc.setCapability(MobileCapabilityType.APP, "cloud:uniqueName=testEribankIOS");
+		//dc.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
+		//dc.setCapability("instrumentApp", true);
 		driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
         driver.hideKeyboard();
         driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");
