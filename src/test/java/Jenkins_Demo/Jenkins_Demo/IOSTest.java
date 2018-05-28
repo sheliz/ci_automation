@@ -35,7 +35,7 @@ public class IOSTest  {
 	}
 
 	@Test
-	public void test(){ 
+	public void test(){
 		client.install("cloud:uniqueName=testEribankIOS_" + System.getenv("BUILD_NUMBER"), true, false);
 		client.launch("cloud:com.experitest.ExperiBank", true, true);
 		driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
