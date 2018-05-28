@@ -31,7 +31,20 @@ public class IOSTest  {
 	}
 
 	@Test
-	public void test(){
+	public void test1(){
+        driver.executeScript("seetest:client.install(\"cloud:uniqueName=testEribankIOS_" + System.getenv("BUILD_NUMBER") + "\", \"true\", \"false\")");
+		driver.executeScript("seetest:client.launch(\"cloud:com.experitest.ExperiBank\", \"true\", \"true\")");
+		dc.setCapability(MobileCapabilityType.APP, "cloud:uniqueName=testEribankIOS");
+		dc.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
+		dc.setCapability("instrumentApp", true);
+		driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
+        driver.hideKeyboard();
+        driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");
+        driver.findElement(By.xpath("//*[@id='loginButton']")).click();
+	}
+	
+	@Test
+	public void test2(){
         driver.executeScript("seetest:client.install(\"cloud:uniqueName=testEribankIOS_" + System.getenv("BUILD_NUMBER") + "\", \"true\", \"false\")");
 		driver.executeScript("seetest:client.launch(\"cloud:com.experitest.ExperiBank\", \"true\", \"true\")");
 		dc.setCapability(MobileCapabilityType.APP, "cloud:uniqueName=testEribankIOS");
