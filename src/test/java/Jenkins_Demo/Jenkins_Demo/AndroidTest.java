@@ -22,12 +22,24 @@ public class AndroidTest {
 		dc.setCapability("reportFormat", "xml");
 		dc.setCapability("stream", "jenkins_android_phone");
 		dc.setCapability("build.number", System.getenv("BUILD_NUMBER"));
-		dc.setCapability("accessKey", System.getenv("accessKey")); 
-        driver = new AndroidDriver<AndroidElement>(new URL(System.getenv("url")), dc);
+		//dc.setCapability("accessKey", System.getenv("accessKey")); 
+        //driver = new AndroidDriver<AndroidElement>(new URL(System.getenv("url")), dc);
+		dc.setCapability("accessKey", "eyJ4cC51IjoxMjcsInhwLnAiOjIsInhwLm0iOiJNVFV5TXpnM01qRTVNRFl3TnciLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE4NDI4NTA4NTYsImlzcyI6ImNvbS5leHBlcml0ZXN0In0.sRcxtQ_CcVkKZO1zqPP5IuDLNuhGrzF0zVR67Q-EJeQ"); 
+        driver = new AndroidDriver<AndroidElement>(new URL("https://sales.experitest.com/wd/hub"), dc);
     }
 
     @Test
-    public void test() {
+    public void test1() {
+        driver.executeScript("seetest:client.install(\"cloud:uniqueName=testEribankAndroid_" + System.getenv("BUILD_NUMBER") + "\", \"true\", \"false\")");
+		driver.executeScript("seetest:client.launch(\"cloud:com.experitest.eribank/com.experitest.ExperiBank.LoginActivity\", \"true\", \"true\")");
+        driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
+        driver.hideKeyboard();
+        driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");
+        driver.findElement(By.xpath("//*[@id='loginButton']")).click();
+    }
+    
+    @Test
+    public void test2() {
         driver.executeScript("seetest:client.install(\"cloud:uniqueName=testEribankAndroid_" + System.getenv("BUILD_NUMBER") + "\", \"true\", \"false\")");
 		driver.executeScript("seetest:client.launch(\"cloud:com.experitest.eribank/com.experitest.ExperiBank.LoginActivity\", \"true\", \"true\")");
         driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
