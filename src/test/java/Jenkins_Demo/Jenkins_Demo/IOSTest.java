@@ -38,11 +38,6 @@ public class IOSTest  {
 	public void test(){
 		client.install("cloud:uniqueName=testEribankIOS_" + System.getenv("BUILD_NUMBER"), true, false);
 		client.launch("cloud:com.experitest.ExperiBank", true, true);
-        //driver.executeScript("seetest:client.install(\"cloud:uniqueName=testEribankIOS_" + System.getenv("BUILD_NUMBER") + "\", \"true\", \"false\")");
-		//driver.executeScript("seetest:client.launch(\"cloud:com.experitest.ExperiBank\", \"true\", \"true\")");
-		//dc.setCapability(MobileCapabilityType.APP, "cloud:uniqueName=testEribankIOS");
-		//dc.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
-		//dc.setCapability("instrumentApp", true);
 		driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
         driver.hideKeyboard();
         driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");

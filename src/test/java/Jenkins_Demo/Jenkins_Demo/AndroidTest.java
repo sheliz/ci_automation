@@ -34,8 +34,6 @@ public class AndroidTest {
     public void test() {
     	client.install("cloud:uniqueName=testEribankAndroid_" + System.getenv("BUILD_NUMBER"), true, false);
     	client.launch("cloud:com.experitest.eribank/com.experitest.ExperiBank.LoginActivity", true, true);
-        //driver.executeScript("seetest:client.install(\"cloud:uniqueName=testEribankAndroid_" + System.getenv("BUILD_NUMBER") + "\", \"true\", \"false\")");
-		//driver.executeScript("seetest:client.launch(\"cloud:com.experitest.eribank/com.experitest.ExperiBank.LoginActivity\", \"true\", \"true\")");
         driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
         driver.hideKeyboard();
         driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");
