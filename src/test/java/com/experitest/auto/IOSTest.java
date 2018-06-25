@@ -1,34 +1,32 @@
-package Jenkins_Demo.Jenkins_Demo;
-
+package com.experitest.auto;
 import java.net.URL;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import com.experitest.appium.SeeTestClient;
-
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
-import io.appium.java_client.remote.IOSMobileCapabilityType;
-import io.appium.java_client.remote.MobileCapabilityType;
+
 
 public class IOSTest  {
 
-	private String testName = "Jenkins Demo iOS";
+	private String testName = "Demo iOS";
     protected IOSDriver<IOSElement> driver = null;
     protected DesiredCapabilities dc = new DesiredCapabilities();
     private SeeTestClient client;
 
-	@Before
-	public void setUp() throws Exception{
+	@BeforeTest
+	@Parameters("deviceQuery")
+	public void setUp(String deviceQuery) throws Exception{
         dc.setCapability("testName", testName);
-		dc.setCapability("deviceQuery", System.getenv("deviceQuery"));
+		dc.setCapability("deviceQuery", deviceQuery);
 		dc.setCapability("reportDirectory", "reports");
 		dc.setCapability("reportFormat", "xml");
-		dc.setCapability("stream", "jenkins_ios_phone");
-		dc.setCapability("build.number", System.getenv("BUILD_NUMBER"));
+		dc.setCapability("build", "jenkins_ios_phone");
+//		dc.setCapability("build.number", System.getenv("BUILD_NUMBER"));
 		dc.setCapability("accessKey", System.getenv("accessKey")); 
         driver = new IOSDriver<IOSElement>(new URL(System.getenv("url")), dc);
         client = new SeeTestClient(driver);
@@ -44,7 +42,7 @@ public class IOSTest  {
         driver.findElement(By.xpath("//*[@id='loginButton']")).click();
 	}
 	
-	@After
+	@AfterTest
 	public void tearDown(){
 		driver.quit();
 	}

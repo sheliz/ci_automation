@@ -1,9 +1,12 @@
-package Jenkins_Demo.Jenkins_Demo;
+package com.experitest.auto;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import com.experitest.appium.SeeTestClient;
 
@@ -12,19 +15,19 @@ import java.net.URL;
 
 public class AndroidTest {
 
-	private String testName = "Jenkins Demo Android Phone";
+	private String testName = "Demo Android Phone";
 	protected AndroidDriver<AndroidElement> driver = null;
 	protected DesiredCapabilities dc = new DesiredCapabilities();
 	private SeeTestClient client;
 
-    @Before
-    public void setUp() throws MalformedURLException {
+    @BeforeTest
+    @Parameters("deviceQuery")
+    public void setUp(String deviceQuery) throws MalformedURLException {
         dc.setCapability("testName", testName);
-		dc.setCapability("deviceQuery", System.getenv("deviceQuery"));
+		dc.setCapability("deviceQuery", deviceQuery);
 		dc.setCapability("reportDirectory", "reports");
 		dc.setCapability("reportFormat", "xml");
-		dc.setCapability("stream", "jenkins_android_phone");
-		dc.setCapability("build.number", System.getenv("BUILD_NUMBER"));
+		dc.setCapability("build", "jenkins_android_phone");
 		dc.setCapability("accessKey", System.getenv("accessKey")); 
         driver = new AndroidDriver<AndroidElement>(new URL(System.getenv("url")), dc);
         client = new SeeTestClient(driver);
@@ -40,7 +43,7 @@ public class AndroidTest {
         driver.findElement(By.xpath("//*[@id='loginButton']")).click();
     }
 
-    @After
+    @AfterTest
     public void tearDown() {
         driver.quit();
     }
