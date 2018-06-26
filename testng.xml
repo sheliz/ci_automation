@@ -6,7 +6,7 @@
     <classes>
       <class name="com.experitest.auto.WebTest"/>
     </classes>
-  </test> <!-- Test -->
+  </test> <!-- Testtt -->
   <test name="Experitest site">
   	<parameter name="browserName" value="firefox"/>
     <classes>
