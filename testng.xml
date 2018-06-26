@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="WebAndNativeTests" parallel="tests">
-  <test name="ChromeTest">
+  <!--test name="ChromeTest">
   	<parameter name="browserName" value="chrome"/>
     <classes>
       <class name="com.experitest.auto.WebTest"/>
@@ -68,7 +68,7 @@
     <classes>
       <class name="com.experitest.auto.AndroidTest"/>
     </classes>
-  </test> <!-- Test -->
+  </test--> <!-- Test -->
   <test name="TestIOS_login">
   	<parameter name="deviceQuery" value="@os='ios'"/>
     <classes>
