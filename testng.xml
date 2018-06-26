@@ -13,6 +13,12 @@
       <class name="com.experitest.auto.WebTest"/>
     </classes>
   </test> <!-- Test -->
+  <test name="Experitest site firefox">
+  	<parameter name="browserName" value="firefox"/>
+    <classes>
+      <class name="com.experitest.auto.WebTest"/>
+    </classes>
+  </test> <!-- Test -->
   <test name="IE_Test">
   	<parameter name="browserName" value="internet explorer"/>
     <classes>
@@ -38,6 +44,12 @@
     </classes>
   </test> <!-- Test -->
   <test name="TestAndroid">
+  	<parameter name="deviceQuery" value="@os='android'"/>
+    <classes>
+      <class name="com.experitest.auto.AndroidTest"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="TestAndroid_#2">
   	<parameter name="deviceQuery" value="@os='android'"/>
     <classes>
       <class name="com.experitest.auto.AndroidTest"/>
