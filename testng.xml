@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="WebTests" parallel="methods">
-  <test name="Test">
+<suite name="WebAndNativeTests" parallel="methods">
+  <test name="ChromeTest">
   	<parameter name="browserName" value="chrome"/>
     <classes>
       <class name="com.experitest.auto.WebTest"/>
@@ -13,7 +13,7 @@
       <class name="com.experitest.auto.WebTest"/>
     </classes>
   </test> <!-- Test -->
-  <test name="Test">
+  <test name="IE_Test">
   	<parameter name="browserName" value="internet explorer"/>
     <classes>
       <class name="com.experitest.auto.WebTest"/>
@@ -25,15 +25,13 @@
       <class name="com.experitest.auto.WebTest"/>
     </classes>
   </test> <!-- Test -->
-</suite> <!-- Suite -->
-<suite name="NativeTests" parallel="methods">
   <test name="TestIOS">
   	<parameter name="deviceQuery" value="@os='ios'"/>
     <classes>
       <class name="com.experitest.auto.IOSTest"/>
     </classes>
   </test> <!-- Test -->
-    <test name="TestIOS_login">
+  <test name="TestIOS_login">
   	<parameter name="deviceQuery" value="@os='ios'"/>
     <classes>
       <class name="com.experitest.auto.IOSTest"/>

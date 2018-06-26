@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import com.experitest.appium.SeeTestClient;
 import io.appium.java_client.ios.IOSDriver;
@@ -20,7 +21,7 @@ public class IOSTest  {
 
 	@BeforeTest
 	@Parameters("deviceQuery")
-	public void setUp(String deviceQuery) throws Exception{
+	public void setUp(@Optional("@os='ios'") String deviceQuery) throws Exception{
         dc.setCapability("testName", testName);
 		dc.setCapability("deviceQuery", deviceQuery);
 		dc.setCapability("reportDirectory", "reports");

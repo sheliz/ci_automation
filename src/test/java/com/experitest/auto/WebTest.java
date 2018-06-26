@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.TestNGUtils;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import java.net.URL;
@@ -23,7 +24,7 @@ public class WebTest {
 
     @BeforeTest
     @Parameters("browserName")
-    public void setUp(String browserName) throws Exception {
+    public void setUp(@Optional("chrome") String browserName) throws Exception {
         dc.setCapability(CapabilityType.BROWSER_NAME, browserName);
         dc.setCapability(CapabilityType.VERSION, "Any");
         dc.setCapability(CapabilityType.PLATFORM, Platform.ANY);

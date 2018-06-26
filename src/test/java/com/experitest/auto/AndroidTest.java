@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import com.experitest.appium.SeeTestClient;
@@ -22,7 +23,7 @@ public class AndroidTest {
 
     @BeforeTest
     @Parameters("deviceQuery")
-    public void setUp(String deviceQuery) throws MalformedURLException {
+    public void setUp(@Optional("@os='android'") String deviceQuery) throws MalformedURLException {
         dc.setCapability("testName", testName);
 		dc.setCapability("deviceQuery", deviceQuery);
 		dc.setCapability("reportDirectory", "reports");
