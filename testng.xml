@@ -37,14 +37,14 @@
       <class name="com.experitest.auto.WebTest"/>
     </classes>
   </test> <!-- Test -->
-  <test>
+  <test name="TestIphone">
   	<parameter name="browserName" value="iPhone"/>
   	<parameter name="platformName" value="ios"/>
     <classes>
       <class name="com.experitest.auto.WebTest"/>
     </classes>
   </test> <!-- Test -->
-  <test>
+  <test name="TestAndroidWeb">
   	<parameter name="browserName" value="chrome"/>
   	<parameter name="platformName" value="Android"/>
     <classes>
