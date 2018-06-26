@@ -29,7 +29,7 @@ public class WebTest {
         dc.setCapability(CapabilityType.VERSION, "Any");
         dc.setCapability(CapabilityType.PLATFORM, Platform.ANY);
 		dc.setCapability("stream", "jenkins_web");
-//        dc.setCapability("build.number", System.getenv("BUILD_NUMBER"));
+        dc.setCapability("build.number", System.getenv("BUILD_NUMBER"));
         dc.setCapability("accessKey", System.getenv("accessKey"));
         dc.setCapability("testName", "Experitest site");
         driver = new RemoteWebDriver(new URL(System.getenv("url")), dc);

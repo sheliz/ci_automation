@@ -26,8 +26,7 @@ public class IOSTest  {
 		dc.setCapability("deviceQuery", deviceQuery);
 		dc.setCapability("reportDirectory", "reports");
 		dc.setCapability("reportFormat", "xml");
-		dc.setCapability("build", "jenkins_ios_phone");
-//		dc.setCapability("build.number", System.getenv("BUILD_NUMBER"));
+		dc.setCapability("build.number", System.getenv("BUILD_NUMBER"));
 		dc.setCapability("accessKey", System.getenv("accessKey")); 
         driver = new IOSDriver<IOSElement>(new URL(System.getenv("url")), dc);
         client = new SeeTestClient(driver);
