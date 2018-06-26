@@ -1,6 +1,5 @@
 package com.experitest.auto;
 
-import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
@@ -13,6 +12,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import java.net.URL;
 
