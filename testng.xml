@@ -13,6 +13,18 @@
       <class name="com.experitest.auto.WebTest"/>
     </classes>
   </test> <!-- Test -->
+  <test name="ChromeTest_#2">
+  	<parameter name="browserName" value="chrome"/>
+    <classes>
+      <class name="com.experitest.auto.WebTest"/>
+    </classes>
+  </test> <!-- Testtt -->
+  <test name="FirefoxTest">
+  	<parameter name="browserName" value="firefox"/>
+    <classes>
+      <class name="com.experitest.auto.WebTest"/>
+    </classes>
+  </test> <!-- Test -->
   <test name="Experitest site firefox">
   	<parameter name="browserName" value="firefox"/>
     <classes>
@@ -25,8 +37,16 @@
       <class name="com.experitest.auto.WebTest"/>
     </classes>
   </test> <!-- Test -->
-  <test name="Test">
+  <test>
   	<parameter name="browserName" value="iPhone"/>
+  	<parameter name="platformName" value="ios"/>
+    <classes>
+      <class name="com.experitest.auto.WebTest"/>
+    </classes>
+  </test> <!-- Test -->
+  <test>
+  	<parameter name="browserName" value="chrome"/>
+  	<parameter name="platformName" value="Android"/>
     <classes>
       <class name="com.experitest.auto.WebTest"/>
     </classes>

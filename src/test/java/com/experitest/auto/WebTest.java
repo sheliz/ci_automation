@@ -23,11 +23,11 @@ public class WebTest {
     private DesiredCapabilities dc = new DesiredCapabilities();
 
     @BeforeTest
-    @Parameters("browserName")
-    public void setUp(@Optional("chrome") String browserName) throws Exception {
+    @Parameters({"browserName","platformName"})
+    public void setUp(@Optional("chrome") String browserName, @Optional("") String platformName) throws Exception {
         dc.setCapability(CapabilityType.BROWSER_NAME, browserName);
         dc.setCapability(CapabilityType.VERSION, "Any");
-        dc.setCapability(CapabilityType.PLATFORM, Platform.ANY);
+        dc.setCapability(CapabilityType.PLATFORM, platformName);
 		dc.setCapability("stream", "jenkins_web");
         dc.setCapability("build.number", System.getenv("BUILD_NUMBER"));
         dc.setCapability("accessKey", System.getenv("accessKey"));
