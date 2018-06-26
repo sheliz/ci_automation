@@ -2,6 +2,8 @@ package com.experitest.auto;
 import java.net.URL;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
@@ -41,10 +43,17 @@ public class IOSTest  {
 
 	@Test
 	public void test(){
-		driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
+		driver.findElement(in.Repo.obj("login_page_ios.Username")).sendKeys("company");
         driver.hideKeyboard();
-        driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");
-        driver.findElement(By.xpath("//*[@id='loginButton']")).click();
+        driver.findElement(in.Repo.obj("login_page_ios.Password")).sendKeys("company");
+        driver.findElement(in.Repo.obj("login_page_ios.Login")).click();
+        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(in.Repo.obj("Eribank_options.Advanced_Actions")));
+        driver.findElement(in.Repo.obj("Eribank_options.Advanced_Actions")).click();
+        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(in.Repo.obj("Advanced.Eribank_Website")));
+        driver.findElement(in.Repo.obj("Advanced.Eribank_Website")).click();
+        driver.context("WEBVIEW_1");
+        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(in.Repo.obj("Website.free_trial")));
+        driver.findElement(in.Repo.obj("Website.free_trial")).click();
 	}
 	
 	@AfterTest

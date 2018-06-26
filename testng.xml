@@ -57,12 +57,6 @@
       <class name="com.experitest.auto.IOSTest"/>
     </classes>
   </test> <!-- Test -->
-  <test name="TestIOS_login">
-  	<parameter name="deviceQuery" value="@os='ios'"/>
-    <classes>
-      <class name="com.experitest.auto.IOSTest"/>
-    </classes>
-  </test> <!-- Test -->
   <test name="TestAndroid">
   	<parameter name="deviceQuery" value="@os='android'"/>
     <classes>
@@ -73,6 +67,12 @@
   	<parameter name="deviceQuery" value="@os='android'"/>
     <classes>
       <class name="com.experitest.auto.AndroidTest"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="TestIOS_login">
+  	<parameter name="deviceQuery" value="@os='ios'"/>
+    <classes>
+      <class name="com.experitest.auto.IOSTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
