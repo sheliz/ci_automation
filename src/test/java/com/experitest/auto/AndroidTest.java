@@ -1,6 +1,9 @@
 package com.experitest.auto;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
+import io.appium.java_client.remote.MobileCapabilityType;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
@@ -30,14 +33,16 @@ public class AndroidTest {
 		dc.setCapability("reportFormat", "xml");
 		dc.setCapability("build.number", System.getenv("BUILD_NUMBER"));
 		dc.setCapability("accessKey", System.getenv("accessKey")); 
+        dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.eribank/com.experitest.ExperiBank.LoginActivity");
+        dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.ExperiBank");
+        dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.experitest.ExperiBank.LoginActivity");
+	    dc.setCapability("instrumentApp", true);
         driver = new AndroidDriver<AndroidElement>(new URL(System.getenv("url")), dc);
         client = new SeeTestClient(driver);
     }
 
     @Test
     public void test() {
-    	client.install("cloud:uniqueName=testEribankAndroid_" + System.getenv("BUILD_NUMBER"), true, false);
-    	client.launch("cloud:com.experitest.eribank/com.experitest.ExperiBank.LoginActivity", true, true);
         driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
         driver.hideKeyboard();
         driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");

@@ -11,6 +11,8 @@ import org.testng.annotations.Test;
 import com.experitest.appium.SeeTestClient;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
+import io.appium.java_client.remote.IOSMobileCapabilityType;
+import io.appium.java_client.remote.MobileCapabilityType;
 
 
 public class IOSTest  {
@@ -29,14 +31,16 @@ public class IOSTest  {
 		dc.setCapability("reportFormat", "xml");
 		dc.setCapability("build.number", System.getenv("BUILD_NUMBER"));
 		dc.setCapability("accessKey", System.getenv("accessKey")); 
+	    dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank");
+	    dc.setCapability("appVersion", "2441");
+	    dc.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
+	    dc.setCapability("instrumentApp", true);
         driver = new IOSDriver<IOSElement>(new URL(System.getenv("url")), dc);
         client = new SeeTestClient(driver);
 	}
 
 	@Test
 	public void test(){
-		client.install("cloud:uniqueName=testEribankIOS_" + System.getenv("BUILD_NUMBER"), true, false);
-		client.launch("cloud:com.experitest.ExperiBank", true, true);
 		driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
         driver.hideKeyboard();
         driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");
